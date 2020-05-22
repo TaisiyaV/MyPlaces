@@ -7,46 +7,76 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MainViewController: UITableViewController {
     
-//    var places = Place.getPlaces()
+    var places: Results<Place>!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        places = realm.objects(Place.self)
+        
     }
 
     // MARK: - Table view data source
 
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return places.count
-//    }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return places.isEmpty ? 0 : places.count
+    }
 
 
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
+
+        let place = places[indexPath.row]
+
+        cell.nameLabel.text = place.name
+        cell.locationLabel.text = place.location
+        cell.typeLabel.text = place.type
+        cell.imageOfPlace.image = UIImage(data: place.imageData!)
+
+        cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.size.height / 2
+        cell.imageOfPlace.clipsToBounds = true
+
+        return cell
+    }
+    
+    
+    //MARK: - Table view delegate
+    
+//    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 //
 //        let place = places[indexPath.row]
+//        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (_, _) in
 //
-//        cell.nameLabel.text = place.name
-//        cell.locationLabel.text = place.location
-//        cell.typeLabel.text = place.type
-//
-//        if place.image == nil {
-//            cell.imageOfPlace.image = UIImage(named: place.restaurantImage!)
-//        } else {
-//            cell.imageOfPlace.image = place.image
+//            StorageManager.deleteObject(place)
+//            tableView.deleteRows(at: [indexPath], with: .automatic)
 //        }
 //
-//
-//
-//        cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.size.height / 2
-//        cell.imageOfPlace.clipsToBounds = true
-//
-//        return cell
+//        return [deleteAction]
 //    }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let place = places[indexPath.row]
+        
+        let delete = UIContextualAction(style: .destructive, title: "Delete") { (_, _, _) in
+            
+            StorageManager.deleteObject(place)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+        }
+        
+        let swipeActionCofig = UISwipeActionsConfiguration(actions: [delete])
+        swipeActionCofig.performsFirstActionWithFullSwipe = true
+        
+        return swipeActionCofig
+        
+    }
+    
     
     /*
     // MARK: - Navigation
@@ -63,7 +93,6 @@ class MainViewController: UITableViewController {
         guard let newPlaceVC = segue.source as? NewPlaceViewController else { return }
         
         newPlaceVC.saveNewPlace()
- //       places.append(newPlaceVC.newPlace!)
         tableView.reloadData()
     }
 
