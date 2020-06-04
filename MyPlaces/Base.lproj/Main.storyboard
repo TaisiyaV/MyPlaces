@@ -151,7 +151,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xwO-UA-bL8" customClass="RatingControl" customModule="MyPlaces" customModuleProvider="target">
+                                                <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="252" placeholderIntrinsicHeight="44" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xwO-UA-bL8" customClass="RatingControl" customModule="MyPlaces" customModuleProvider="target">
                                                     <rect key="frame" x="81" y="48" width="252" height="44"/>
                                                 </stackView>
                                             </subviews>
@@ -203,7 +203,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fWI-Os-Kiu">
-                                <rect key="frame" x="0.0" y="120" width="414" height="742"/>
+                                <rect key="frame" x="0.0" y="120" width="414" height="776"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="WgU-6b-tkv" customClass="CustomTableViewCell" customModule="MyPlaces" customModuleProvider="target">
@@ -284,7 +284,7 @@
                             <constraint firstItem="fWI-Os-Kiu" firstAttribute="leading" secondItem="64e-gl-F9k" secondAttribute="leading" id="6Y1-O8-ex7"/>
                             <constraint firstItem="LkE-n6-2Os" firstAttribute="trailing" secondItem="64e-gl-F9k" secondAttribute="trailing" id="NHC-aH-AyA"/>
                             <constraint firstItem="LkE-n6-2Os" firstAttribute="leading" secondItem="64e-gl-F9k" secondAttribute="leading" id="Y38-gt-CJL"/>
-                            <constraint firstItem="fWI-Os-Kiu" firstAttribute="bottom" secondItem="64e-gl-F9k" secondAttribute="bottom" id="eF2-Me-FHx"/>
+                            <constraint firstItem="fWI-Os-Kiu" firstAttribute="bottom" secondItem="qFV-Xs-wzj" secondAttribute="bottom" id="eF2-Me-FHx"/>
                             <constraint firstItem="fWI-Os-Kiu" firstAttribute="trailing" secondItem="64e-gl-F9k" secondAttribute="trailing" id="mE7-EH-2tC"/>
                             <constraint firstItem="fWI-Os-Kiu" firstAttribute="top" secondItem="LkE-n6-2Os" secondAttribute="bottom" constant="1" id="pP6-It-4Yy"/>
                         </constraints>
