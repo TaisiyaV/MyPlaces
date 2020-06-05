@@ -29,13 +29,26 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Photo" translatesAutoresizingMaskIntoConstraints="NO" id="vfX-5S-s28">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="250.00000000000006"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPp-qW-Vtu">
+                                                    <rect key="frame" x="344" y="189" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="80y-jA-koa"/>
+                                                        <constraint firstAttribute="height" constant="50" id="Mpm-6H-gEw"/>
+                                                    </constraints>
+                                                    <state key="normal" image="map"/>
+                                                    <connections>
+                                                        <segue destination="f6n-c2-88R" kind="presentation" identifier="showMap" modalPresentationStyle="fullScreen" id="1Wg-7S-3xe"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
+                                                <constraint firstItem="ZPp-qW-Vtu" firstAttribute="trailing" secondItem="OoL-4R-n90" secondAttribute="trailingMargin" id="CTt-Xh-nCZ"/>
                                                 <constraint firstItem="vfX-5S-s28" firstAttribute="leading" secondItem="OoL-4R-n90" secondAttribute="leading" id="HEo-mo-3Oq"/>
                                                 <constraint firstItem="vfX-5S-s28" firstAttribute="top" secondItem="OoL-4R-n90" secondAttribute="top" id="ma8-g4-fSw"/>
                                                 <constraint firstAttribute="trailing" secondItem="vfX-5S-s28" secondAttribute="trailing" id="pO3-k2-BFz"/>
                                                 <constraint firstAttribute="bottom" secondItem="vfX-5S-s28" secondAttribute="bottom" id="uw7-MD-v2y"/>
+                                                <constraint firstItem="ZPp-qW-Vtu" firstAttribute="bottom" secondItem="OoL-4R-n90" secondAttribute="bottomMargin" id="yLm-bd-8Co"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -193,7 +206,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TI6-yx-cNr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="YPT-hY-vOW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1244" y="115"/>
+            <point key="canvasLocation" x="1243.4782608695652" y="114.50892857142857"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="AXp-LU-E2L">
+            <objects>
+                <viewController id="f6n-c2-88R" customClass="MapViewController" customModule="MyPlaces" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7tk-cV-uqR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TfD-VL-SVR">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Huf-I7-Nal">
+                                <rect key="frame" x="344" y="84" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="LSE-q3-Xay"/>
+                                    <constraint firstAttribute="width" constant="30" id="Wub-wO-bPs"/>
+                                </constraints>
+                                <state key="normal" image="cancel"/>
+                                <connections>
+                                    <action selector="closeVC" destination="f6n-c2-88R" eventType="touchUpInside" id="ubM-zQ-te6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Huf-I7-Nal" firstAttribute="top" secondItem="wqt-oC-xle" secondAttribute="top" constant="40" id="3BN-T3-oO0"/>
+                            <constraint firstItem="TfD-VL-SVR" firstAttribute="trailing" secondItem="wqt-oC-xle" secondAttribute="trailing" id="Eq3-lR-FBX"/>
+                            <constraint firstItem="TfD-VL-SVR" firstAttribute="top" secondItem="7tk-cV-uqR" secondAttribute="top" id="Ock-ey-ms0"/>
+                            <constraint firstAttribute="bottom" secondItem="TfD-VL-SVR" secondAttribute="bottom" id="YVh-sQ-sIF"/>
+                            <constraint firstItem="TfD-VL-SVR" firstAttribute="leading" secondItem="wqt-oC-xle" secondAttribute="leading" id="ZAf-yz-eKF"/>
+                            <constraint firstItem="wqt-oC-xle" firstAttribute="trailing" secondItem="Huf-I7-Nal" secondAttribute="trailing" constant="40" id="oNd-WA-1v4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wqt-oC-xle"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MAe-go-1N3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2111.594202898551" y="113.83928571428571"/>
         </scene>
         <!--My Places-->
         <scene sceneID="Ezm-hY-mk4">
@@ -371,8 +423,10 @@
     <resources>
         <image name="AZ" width="25" height="24"/>
         <image name="Photo" width="195" height="196"/>
+        <image name="cancel" width="128" height="128"/>
         <image name="emptyStar" width="255" height="256"/>
         <image name="filledStar" width="237.5" height="238"/>
+        <image name="map" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="L9U-Mo-HbT"/>
