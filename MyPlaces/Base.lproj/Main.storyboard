@@ -27,7 +27,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Photo" translatesAutoresizingMaskIntoConstraints="NO" id="vfX-5S-s28">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="250.00000000000006"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPp-qW-Vtu">
                                                     <rect key="frame" x="344" y="189" width="50" height="50"/>
@@ -230,15 +230,28 @@
                                     <action selector="closeVC" destination="f6n-c2-88R" eventType="touchUpInside" id="ubM-zQ-te6"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VrQ-iH-SZn">
+                                <rect key="frame" x="324" y="772" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="MZH-1E-MnM"/>
+                                    <constraint firstAttribute="height" constant="50" id="uz7-ab-Ujt"/>
+                                </constraints>
+                                <state key="normal" image="Location"/>
+                                <connections>
+                                    <action selector="centerViewInUserLocation" destination="f6n-c2-88R" eventType="touchUpInside" id="hSM-E3-zbP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="wqt-oC-xle" firstAttribute="bottom" secondItem="VrQ-iH-SZn" secondAttribute="bottom" constant="40" id="1xw-qT-pM5"/>
                             <constraint firstItem="Huf-I7-Nal" firstAttribute="top" secondItem="wqt-oC-xle" secondAttribute="top" constant="40" id="3BN-T3-oO0"/>
                             <constraint firstItem="TfD-VL-SVR" firstAttribute="trailing" secondItem="wqt-oC-xle" secondAttribute="trailing" id="Eq3-lR-FBX"/>
                             <constraint firstItem="TfD-VL-SVR" firstAttribute="top" secondItem="7tk-cV-uqR" secondAttribute="top" id="Ock-ey-ms0"/>
                             <constraint firstAttribute="bottom" secondItem="TfD-VL-SVR" secondAttribute="bottom" id="YVh-sQ-sIF"/>
                             <constraint firstItem="TfD-VL-SVR" firstAttribute="leading" secondItem="wqt-oC-xle" secondAttribute="leading" id="ZAf-yz-eKF"/>
                             <constraint firstItem="wqt-oC-xle" firstAttribute="trailing" secondItem="Huf-I7-Nal" secondAttribute="trailing" constant="40" id="oNd-WA-1v4"/>
+                            <constraint firstItem="wqt-oC-xle" firstAttribute="trailing" secondItem="VrQ-iH-SZn" secondAttribute="trailing" constant="40" id="uKG-mO-VbH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wqt-oC-xle"/>
                     </view>
@@ -425,6 +438,7 @@
     </scenes>
     <resources>
         <image name="AZ" width="25" height="24"/>
+        <image name="Location" width="128" height="128"/>
         <image name="Photo" width="195" height="196"/>
         <image name="cancel" width="128" height="128"/>
         <image name="emptyStar" width="255" height="256"/>
