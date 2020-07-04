@@ -12,7 +12,7 @@
             <objects>
                 <tableViewController id="R0Y-Hv-vdv" customClass="NewPlaceViewController" customModule="MyPlaces" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Jry-bb-BX6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
@@ -27,7 +27,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Photo" translatesAutoresizingMaskIntoConstraints="NO" id="vfX-5S-s28">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="250.00000000000006"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPp-qW-Vtu">
                                                     <rect key="frame" x="344" y="189" width="50" height="50"/>
@@ -277,10 +277,23 @@
                                     <action selector="doneButtonPressed" destination="f6n-c2-88R" eventType="touchUpInside" id="8ao-av-dkf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bhy-kK-3pE">
+                                <rect key="frame" x="182" y="718" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="KjQ-rq-AAy"/>
+                                    <constraint firstAttribute="height" constant="50" id="NJW-oT-W4E"/>
+                                </constraints>
+                                <state key="normal" image="GetDirection"/>
+                                <connections>
+                                    <action selector="goButtonPressed" destination="f6n-c2-88R" eventType="touchUpInside" id="XEZ-De-GrN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Huf-I7-Nal" firstAttribute="top" secondItem="wqt-oC-xle" secondAttribute="top" constant="40" id="3BN-T3-oO0"/>
+                            <constraint firstItem="wqt-oC-xle" firstAttribute="bottom" secondItem="Bhy-kK-3pE" secondAttribute="bottom" constant="40" id="Czl-HK-bX4"/>
+                            <constraint firstItem="Bhy-kK-3pE" firstAttribute="centerX" secondItem="7tk-cV-uqR" secondAttribute="centerX" id="DTC-A4-DGR"/>
                             <constraint firstItem="TfD-VL-SVR" firstAttribute="trailing" secondItem="wqt-oC-xle" secondAttribute="trailing" id="Eq3-lR-FBX"/>
                             <constraint firstItem="TfD-VL-SVR" firstAttribute="top" secondItem="7tk-cV-uqR" secondAttribute="top" id="Ock-ey-ms0"/>
                             <constraint firstItem="TMG-kV-h2E" firstAttribute="centerY" secondItem="7tk-cV-uqR" secondAttribute="centerY" constant="-20" id="P4E-Oh-IRs"/>
@@ -301,6 +314,7 @@
                     <connections>
                         <outlet property="addressLabel" destination="jnw-3h-dPB" id="rFn-0L-h3C"/>
                         <outlet property="doneButton" destination="FKe-Ob-Q3F" id="O1c-4I-jiu"/>
+                        <outlet property="goButton" destination="Bhy-kK-3pE" id="ZdH-qJ-hRO"/>
                         <outlet property="mapPinImage" destination="TMG-kV-h2E" id="Km2-nA-wQf"/>
                         <outlet property="mapView" destination="TfD-VL-SVR" id="Li1-Ud-D2r"/>
                     </connections>
@@ -484,6 +498,7 @@
     </scenes>
     <resources>
         <image name="AZ" width="25" height="24"/>
+        <image name="GetDirection" width="50" height="50"/>
         <image name="Location" width="128" height="128"/>
         <image name="Photo" width="195" height="196"/>
         <image name="Pin" width="42" height="42"/>
@@ -495,6 +510,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="9IF-is-1bf"/>
-        <segue reference="L9U-Mo-HbT"/>
+        <segue reference="VjP-t8-L52"/>
     </inferredMetricsTieBreakers>
 </document>
